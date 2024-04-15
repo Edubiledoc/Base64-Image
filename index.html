@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTTP Request</title>
+    <title>Fetch API Example</title>
 </head>
-
 <body>
+    <button id="fetchButton">Fetch Data</button>
+
     <script>
-        fetch('https://api.onenet.hk.chinamobile.com/devices/161318797', {
-            method: 'GET',
-            headers: {
-                'api-key': 'yxiqbjwfrXPGZoTyRGpegUbbl4Y='
-            },
-            mode: 'no-cors'
-        })
-        .then(response => response.text())
-        .then(data => {
-            alert(Peko);
-            console.log(data);
-            document.body.innerHTML = "<pre>" + data + "</pre>";
-        })
-        .catch(error => console.error('Error:', error));
+        document.getElementById('fetchButton').addEventListener('click', function() {
+            fetch('https://api.onenet.hk.chinamobile.com/devices/161318797', {
+                method: 'GET',
+                headers: {
+                    'api-key': 'yxiqbjwfrXPGZoTyRGpegUbbl4Y='
+                }
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
     </script>
 </body>
-
 </html>
