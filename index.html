@@ -17,10 +17,11 @@
             })
             .then(response => response.json())
             .then(data => console.log(data))
+            .then(() => console.log('Request succeeded with no-cors mode'))
             .catch((error) => {
-                console.error('Error:', error);
-            });
+            console.error('Request failed', error);
         });
+    })
     </script>
 </body>
 </html>
