@@ -19,6 +19,8 @@
         })
         .then(response => response.text())
         .then(data => {
+            alert(Peko);
+            console.log(data);
             document.body.innerHTML = "<pre>" + data + "</pre>";
         })
         .catch(error => console.error('Error:', error));
