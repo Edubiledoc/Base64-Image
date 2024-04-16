@@ -7,29 +7,26 @@
     <button id="fetchButton">Fetch Data</button>
 
     <script>
-
-        async function postData(url = "") {
-        // Default options are marked with *
-        const response = await fetch(url, {
-            method: "GET", // *GET, POST, PUT, DELETE, etc.
-            mode: "no-cors", // no-cors, *cors, same-origin
-            cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-            headers: {
-            "Content-Type": "application/json",
-            "api-key": "yxiqbjwfrXPGZoTyRGpegUbbl4Y="
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            redirect: "follow", // manual, *follow, error
-            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-                });
-            return response; // parses JSON response into native JavaScript objects
-        }
-
         document.getElementById('fetchButton').addEventListener('click', function() {
 
-            postData("https://api.onenet.hk.chinamobile.com/devices/161318797").then((data) => {
-            console.log(data); // JSON data parsed by `data.json()` call
-            });
+            const myHeaders = new Headers();
+            myHeaders.append("api-key", "yxiqbjwfrXPGZoTyRGpegUbbl4Y=");
+
+            const raw = "";
+
+            const requestOptions = {
+            method: "GET",
+            headers: myHeaders,
+            body: raw,
+            mode: "no-cors", // no-cors, *cors, same-origin
+            redirect: "follow"
+            };
+
+            const httpRequest = fetch("https://api.onenet.hk.chinamobile.com/devices/161318797", requestOptions)
+            .then((response) => response.text())
+            .then((result) => console.log(result))
+            .catch((error) => console.error(error));
+                    
         });
     </script>
 </body>
