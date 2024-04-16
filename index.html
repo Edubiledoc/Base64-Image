@@ -9,19 +9,18 @@
     <script>
         document.getElementById('fetchButton').addEventListener('click', function() {
 
-            const myHeaders = new Headers();
-            myHeaders.append("api-key", "yxiqbjwfrXPGZoTyRGpegUbbl4Y=");
-            const requestOptions = {
-            method: "GET",
-            headers: myHeaders,
-            mode: "no-cors", // no-cors, *cors, same-origin
-            redirect: "follow"
-            };
+            var settings = {
+                "url": "https://api.onenet.hk.chinamobile.com/devices/161318797",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "api-key": "yxiqbjwfrXPGZoTyRGpegUbbl4Y="
+                },
+                };
 
-            const httpRequest = fetch("https://api.onenet.hk.chinamobile.com/devices/161318797", requestOptions)
-            .then((response) => response.text())
-            .then((result) => console.log(result))
-            .catch((error) => console.error(error));
+                $.ajax(settings).done(function (response) {
+                console.log(response);
+                });
                     
         });
     </script>
