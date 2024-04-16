@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Fetch API Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <button id="fetchButton">Fetch Data</button>
@@ -16,11 +17,11 @@
                 "headers": {
                     "api-key": "yxiqbjwfrXPGZoTyRGpegUbbl4Y="
                 },
-                };
+            };
 
-                $.ajax(settings).done(function (response) {
+            $.ajax(settings).done(function (response) {
                 console.log(response);
-                });
+            });
                     
         });
     </script>
