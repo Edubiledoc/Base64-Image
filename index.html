@@ -2,23 +2,27 @@
 <html>
 <head>
     <title>Fetch API Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <button id="fetchButton">Fetch Data</button>
 
     <script>
         document.getElementById('fetchButton').addEventListener('click', function() {
-            fetch('http://apihk.cmcconenet.com/devices/161318797', {
-                method: 'GET',
-                // mode: 'no-cors', // no-cors mode
-                headers: {
-                    'api-key': 'yxiqbjwfrXPGZoTyRGpegUbbl4Y='
-                }
-            })
-            .then(() => console.log('Request succeeded'))
-            .catch((error) => {
-                console.error('Request failed', error);
+
+            var settings = {
+                "url": "https://apihk.cmcconenet.com/devices/161318797",
+                "method": "GET",
+                "timeout": 0,
+                "headers": {
+                    "api-key": "yxiqbjwfrXPGZoTyRGpegUbbl4Y="
+                },
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log(response);
             });
+                    
         });
     </script>
 </body>
